@@ -1,0 +1,89 @@
+/* =========================================
+   Reset & Variabel Dasar (Opsional tapi bikin rapi)
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Penerapan Box Model fundamental */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --primary-color: #2563eb; /* Warna biru profesional ala framework */
+  --primary-hover: #1d4ed8;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --bg-white: #ffffff;
+}
+
+body {
+  background-color: #f9fafb;
+}
+
+/* =========================================
+   Styling Navbar (Penerapan Flexbox & Box Model)
+   ========================================= */
+.navbar {
+  display: flex; /* Menerapkan Flexbox */
+  justify-content: space-between; /* Mendorong logo ke kiri, tombol ke kanan */
+  align-items: center; /* Memastikan semuanya rata tengah secara vertikal */
+  background-color: var(--bg-white);
+  padding: 1.2rem 5%; /* Penerapan Box Model: Jarak dalam navbar */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Efek bayangan modern */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Styling Logo */
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.logo span {
+  color: var(--primary-color); /* Memberi aksen titik biru pada teks Cusgo */
+}
+
+/* Styling Menu Links */
+.nav-links ul {
+  list-style: none;
+  display: flex; /* Flexbox di dalam Flexbox untuk jejerin menu */
+  gap: 2.5rem; /* Jarak antar menu */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* =========================================
+   Styling Tombol (Penerapan Box Model)
+   ========================================= */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.6rem 1.5rem; /* Box Model: Memberi volume pada tombol */
+  border-radius: 8px; /* Box Model: Melengkungkan sudut tombol */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px); /* Efek melayang saat disorot mouse */
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
