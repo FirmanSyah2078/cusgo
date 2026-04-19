@@ -88,3 +88,154 @@ body {
 .nav-links a:hover::after {
   width: 100%;
 }
+
+/* =========================================
+   HALAMAN KONTAK (Grid, Flexbox, Box Model)
+   ========================================= */
+
+/* Pengaturan ruang luar (Box Model) */
+.contact-page {
+  padding: 4rem 5%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.contact-header p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+/* 1. PENERAPAN CSS GRID 
+   Membagi wadah menjadi 2 kolom (Kiri sedikit lebih kecil, Kanan lebih lebar) */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; 
+  background-color: var(--bg-white);
+  border-radius: 16px; /* Melengkungkan sudut luar */
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Bayangan estetik ala framework */
+}
+
+/* 2. PENERAPAN FLEXBOX & BOX MODEL (Panel Kiri) */
+.contact-info {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 3.5rem 2.5rem; 
+  display: flex; 
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: -1rem;
+}
+
+.contact-info p {
+  color: #e0e7ff; /* Warna teks biru sangat muda agar elegan */
+}
+
+.info-item {
+  display: flex; 
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.info-item .icon {
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.15); /* Latar ikon transparan */
+  padding: 0.8rem;
+  border-radius: 12px;
+}
+
+.info-item strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: white;
+}
+
+/* 3. PENERAPAN FLEXBOX (Panel Kanan / Form) */
+.contact-form-wrapper {
+  padding: 3.5rem; 
+}
+
+.contact-form {
+  display: flex; 
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+/* Styling Input agar rapi dan modern */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem; /* Box Model: Memberi ruang di dalam kolom input */
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+/* Efek Glow modern saat input sedang diisi */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: var(--bg-white);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); /* Efek ring biru di sekitar input */
+}
+
+/* Tombol Submit */
+.btn-submit {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-submit:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px); /* Tombol sedikit terangkat saat disorot */
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+/* 4. RESPONSIF (Opsional, agar tidak berantakan di layar kecil) */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr; /* Mematahkan desain menjadi 1 kolom vertikal di HP */
+  }
+}
