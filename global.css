@@ -1,16 +1,15 @@
 /* =========================================
-   Reset & Variabel Dasar (Opsional tapi bikin rapi)
+   Reset & Variabel Dasar
    ========================================= */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Penerapan Box Model fundamental */
+  box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 :root {
-  --primary-color: #2563eb; /* Warna biru profesional ala framework */
-  --primary-hover: #1d4ed8;
+  --primary-color: #2563eb; 
   --text-dark: #1f2937;
   --text-light: #6b7280;
   --bg-white: #ffffff;
@@ -21,15 +20,15 @@ body {
 }
 
 /* =========================================
-   Styling Navbar (Penerapan Flexbox & Box Model)
+   Styling Navbar
    ========================================= */
 .navbar {
-  display: flex; /* Menerapkan Flexbox */
-  justify-content: space-between; /* Mendorong logo ke kiri, tombol ke kanan */
-  align-items: center; /* Memastikan semuanya rata tengah secara vertikal */
+  display: flex; 
+  justify-content: space-between; /* Mendorong menu mentok ke kanan karena tombol sewa dihapus */
+  align-items: center; 
   background-color: var(--bg-white);
-  padding: 1.2rem 5%; /* Penerapan Box Model: Jarak dalam navbar */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Efek bayangan modern */
+  padding: 1.2rem 5%; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -45,45 +44,47 @@ body {
 }
 
 .logo span {
-  color: var(--primary-color); /* Memberi aksen titik biru pada teks Cusgo */
+  color: var(--primary-color);
 }
 
 /* Styling Menu Links */
 .nav-links ul {
   list-style: none;
-  display: flex; /* Flexbox di dalam Flexbox untuk jejerin menu */
-  gap: 2.5rem; /* Jarak antar menu */
+  display: flex; 
+  gap: 2.5rem; 
 }
 
+/* =========================================
+  Animasi Garis Bawah Estetik (Hover Effect)
+  ========================================= 
+*/
 .nav-links a {
   text-decoration: none;
   color: var(--text-light);
   font-weight: 500;
   font-size: 0.95rem;
   transition: color 0.3s ease;
+  position: relative; /* Wajib diatur relative agar garis bawah menempel di bawah teks ini */
+  padding-bottom: 5px; /* Jarak nafas antara teks dan garis animasi */
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: var(--primary-color); /* Warna teks berubah saat disentuh */
 }
 
-/* =========================================
-   Styling Tombol (Penerapan Box Model)
-   ========================================= */
-.btn-primary {
-  display: inline-block;
+/* Elemen garis tak terlihat (lebar 0) */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0; /* Mulai dari lebar 0 */
+  height: 2px; /* Ketebalan garis */
+  bottom: 0; /* Posisikan pas di paling bawah teks */
+  left: 0; /* Garis memanjang dari arah kiri */
   background-color: var(--primary-color);
-  color: white;
-  padding: 0.6rem 1.5rem; /* Box Model: Memberi volume pada tombol */
-  border-radius: 8px; /* Box Model: Melengkungkan sudut tombol */
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+  transition: width 0.3s ease-in-out; /* Transisi pelebaran garis yang mulus */
 }
 
-.btn-primary:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-2px); /* Efek melayang saat disorot mouse */
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+/* Saat teks di-hover, paksa garis melebar menjadi 100% dari ukuran teks */
+.nav-links a:hover::after {
+  width: 100%;
 }
