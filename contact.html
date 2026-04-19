@@ -23,5 +23,93 @@
         </ul>
       </nav>
     </header>
+
+    <main class="contact-page">
+      <div class="contact-header">
+        <h1>Hubungi Kami</h1>
+        <p>
+          Ada pertanyaan seputar layanan armada Cusgo? Jangan ragu untuk
+          mengirim pesan kepada kami.
+        </p>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2>Informasi Kontak</h2>
+          <p>Kami siap membantu memastikan kelancaran perjalanan Anda.</p>
+
+          <div class="info-item">
+            <span class="icon">📍</span>
+            <div>
+              <strong>Alamat Pool</strong>
+              <p>Jl. Mahasiswa No. 123, Blitar</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="icon">📞</span>
+            <div>
+              <strong>Telepon / WhatsApp</strong>
+              <p>+62 812 3456 7890</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="icon">✉️</span>
+            <div>
+              <strong>Email</strong>
+              <p>hello@cusgo.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <form action="#" class="contact-form">
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Masukkan nama Anda"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Alamat Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="nama@email.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Kategori Pertanyaan</label>
+              <select id="subject" required>
+                <option value="" disabled selected>Pilih topik...</option>
+                <option value="ketersediaan">Ketersediaan Unit Motor</option>
+                <option value="harga">Daftar Harga & Promo</option>
+                <option value="kerjasama">Kerjasama Instansi</option>
+                <option value="lainnya">Lainnya</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Pesan Anda</label>
+              <textarea
+                id="message"
+                rows="4"
+                placeholder="Tulis detail pertanyaan Anda di sini..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Kirim Pesan</button>
+          </form>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
