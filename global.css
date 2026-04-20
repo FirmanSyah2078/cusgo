@@ -87,6 +87,17 @@ body {
   width: 100%;
 }
 
+/* --- Penanda Halaman Aktif --- */
+.nav-links a.active {
+  color: var(--text-dark); /* Warna teks jadi gelap seperti saat di-hover */
+  font-weight: 700; /* Teks sedikit lebih tebal agar menonjol */
+}
+
+.nav-links a.active::after {
+  width: 100%; /* Garis bawahnya ditarik penuh secara permanen */
+  background-color: var(--text-dark); /* Garis bawahnya pakai warna biru aksen agar lebih cantik */
+}
+
 /* =========================================
    3. STYLING TATA LETAK & KARTU (GLOBAL)
    ========================================= */
