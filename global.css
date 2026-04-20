@@ -1,5 +1,5 @@
 /* =========================================
-   Reset & Variabel Dasar (Tema Minimalis ala Shadcn)
+   1. RESET & VARIABEL DASAR
    ========================================= */
 * {
   margin: 0;
@@ -9,14 +9,13 @@
 }
 
 :root {
-  /* Ubah primary jadi Slate/Dark Navy yang sangat elegan */
   --primary-color: #0f172a; 
   --primary-hover: #1e293b;
-  --accent-color: #3b82f6; /* Biru terang hanya untuk aksen kecil/glow */
+  --accent-color: #3b82f6; 
   --text-dark: #0f172a;
   --text-light: #64748b;
   --bg-white: #ffffff;
-  --bg-page: #f3f4f6; /* Abu-abu terang agar kartu putihnya menonjol */
+  --bg-page: #f3f4f6; 
   --border-color: #e2e8f0;
 }
 
@@ -26,7 +25,7 @@ body {
 }
 
 /* =========================================
-   Styling Navbar
+   2. STYLING NAVBAR (GLOBAL)
    ========================================= */
 .navbar {
   display: flex; 
@@ -34,7 +33,7 @@ body {
   align-items: center; 
   background-color: var(--bg-white);
   padding: 1.2rem 5%; 
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Bayangan navbar lebih halus */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -49,9 +48,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-.logo span {
-  color: var(--accent-color); /* Titik logo pakai warna aksen biru */
-}
+.logo span { color: var(--accent-color); }
 
 .nav-links ul {
   list-style: none;
@@ -69,9 +66,7 @@ body {
   padding-bottom: 5px; 
 }
 
-.nav-links a:hover {
-  color: var(--text-dark); 
-}
+.nav-links a:hover { color: var(--text-dark); }
 
 .nav-links a::after {
   content: '';
@@ -80,29 +75,32 @@ body {
   height: 2px; 
   bottom: 0; 
   left: 0; 
-  background-color: var(--text-dark); /* Garis bawah warna gelap elegan */
+  background-color: var(--text-dark);
   transition: width 0.3s ease-in-out; 
 }
 
-.nav-links a:hover::after {
-  width: 100%;
-}
+.nav-links a:hover::after { width: 100%; }
+
 
 /* =========================================
-   HALAMAN KONTAK (Revisi: Bentuk Terpisah & Bersih)
+   3. STYLING TATA LETAK & KARTU (GLOBAL)
+   Bisa dipakai di halaman mana saja!
    ========================================= */
-.contact-page {
+
+/* Wadah utama halaman agar posisinya di tengah dan rapi */
+.container {
   padding: 4rem 5%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.contact-header {
+/* Judul setiap halaman (Dipakai di Unit, About, dan Kontak) */
+.section-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.contact-header h1 {
+.section-header h1 {
   font-size: 2.5rem;
   color: var(--text-dark);
   margin-bottom: 0.5rem;
@@ -110,26 +108,172 @@ body {
   letter-spacing: -0.5px;
 }
 
-.contact-header p {
+.section-header p {
   color: var(--text-light);
   font-size: 1.1rem;
 }
 
-/* 1. PENERAPAN CSS GRID (Dibuat terpisah dengan gap) */
+/* Grid Kartu: Diubah ke Flexbox agar baris terakhir otomatis ke tengah (Piramida) */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap; /* Izinkan kartu turun ke baris baru kalau layar tidak muat */
+  justify-content: center; /* KUNCI UTAMA: Posisikan semua kartu di tengah */
+  gap: 2rem;
+}
+
+/* Base style untuk semua kartu (Bentuk dasar) */
+.card {
+  background-color: var(--bg-white);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  
+  /* Tambahan baru: Mengunci ukuran kartu agar seragam dan rapi saat dibariskan */
+  width: 100%;
+  max-width: 320px; /* Ukuran pas untuk kartu profil dan motor */
+}
+
+/* Efek saat kartu disorot mouse (Sesuai request: tidak ada animasi naik) */
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-color);
+}
+
+
+/* =========================================
+   4. STYLING SPESIFIK: HALAMAN UNIT
+   Hanya mempengaruhi kartu unit motor
+   ========================================= */
+.unit-card {
+  align-items: center; /* Meratakan isi ke tengah */
+  text-align: center;
+}
+
+.unit-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain; /* Agar motor tidak gepeng */
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.unit-card:hover img {
+  transform: scale(1.05); /* Motor agak membesar saat disorot */
+}
+
+.unit-card h3 {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.unit-card p {
+  color: var(--text-light);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Tombol Sewa */
+.btn-action {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: auto; /* Mendorong tombol ke paling bawah kartu */
+}
+
+.btn-action:hover {
+  background-color: var(--primary-hover);
+}
+
+
+/* =========================================
+   5. STYLING SPESIFIK: HALAMAN ABOUT
+   Hanya mempengaruhi kartu profil tim
+   ========================================= */
+.about-card {
+  align-items: center;
+  text-align: center;
+}
+
+.about-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; 
+  object-fit: cover;
+  object-position: top; /* <--- Tambahkan baris ini agar jidat tidak kepotong */
+  margin-bottom: 1.5rem;
+  border: 4px solid var(--bg-page);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.about-card h3 {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 0.2rem;
+}
+
+.about-card .nim {
+  font-size: 0.85rem;
+  background-color: var(--bg-page);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.about-card p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.about-card .address {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.about-card .quote {
+  font-style: italic;
+  color: var(--text-dark);
+  font-weight: 500;
+  margin-top: auto; /* Selalu berada di bawah kotak */
+  background: var(--bg-page);
+  padding: 0.8rem;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+
+/* =========================================
+   6. STYLING SPESIFIK: HALAMAN KONTAK
+   ========================================= */
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1.5fr; 
-  gap: 2rem; /* Ini yang bikin bentuknya tidak menyatu */
+  gap: 2rem; 
   align-items: start;
 }
 
-/* 2. PENERAPAN FLEXBOX & BOX MODEL (Panel Kiri - Info) */
 .contact-info {
   background-color: var(--bg-white); 
   padding: 2.5rem; 
   border-radius: 16px;
   border: 1px solid var(--border-color);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); /* Bayangan estetik */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); 
   display: flex; 
   flex-direction: column;
   gap: 2rem;
@@ -155,7 +299,7 @@ body {
 
 .info-item .icon {
   font-size: 1.2rem;
-  background: var(--bg-page); /* Latar ikon abu-abu sangat muda */
+  background: var(--bg-page); 
   padding: 0.8rem;
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -173,7 +317,6 @@ body {
   font-size: 0.95rem;
 }
 
-/* 3. PENERAPAN FLEXBOX (Panel Kanan - Form) */
 .contact-form-wrapper {
   background-color: var(--bg-white);
   padding: 3rem; 
@@ -200,7 +343,7 @@ body {
   font-size: 0.9rem;
 }
 
-/* Styling Input ala Shadcn (Minimalis, outline tipis) */
+/* --- REVISI FORM & DROPDOWN --- */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -209,48 +352,42 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   font-size: 0.95rem;
-  background-color: transparent; /* Background transparan */
+  /* Beri background putih solid, JANGAN transparent */
+  background-color: var(--bg-white); 
   color: var(--text-dark);
   transition: all 0.2s ease;
   font-family: inherit;
 }
 
-/* Efek Glow modern saat input sedang diisi */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--accent-color); /* Border jadi biru aksen */
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); /* Ring biru tipis khas Shadcn */
+  border-color: var(--accent-color); 
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); 
 }
 
 .form-group textarea {
-  resize: vertical; /* Mengunci tarikan hanya untuk ke bawah/atas */
-  min-height: 120px; /* Batas tinggi minimal saat awal dirender */
-  max-height: 400px; /* Opsional: Batas maksimal ditarik agar tidak merusak halaman ke bawah */
+  resize: vertical; 
+  min-height: 120px; 
+  max-height: 400px; 
 }
 
-/* =========================================
-   FIX UNTUK DROPDOWN (SELECT & OPTION)
-   ========================================= */
-
-/* Paksa select memiliki background putih solid agar tidak bug saat dibuka */
+/* FIX DROPDOWN GLITCH: Matikan render bawaan Windows */
 .form-group select {
-  background-color: var(--bg-white);
   cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  /* Gambar panah elegan kustom pengganti panah jadul Windows */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem; /* Jaga teks agar tidak menabrak panah */
 }
 
-/* Paksa isi list pilihan (option) berwarna putih dan teks gelap */
-.form-group select option {
-  background-color: var(--bg-white);
-  color: var(--text-dark);
-  font-size: 0.95rem;
-  padding: 0.5rem; 
-}
-
-/* Tombol Submit */
 .btn-submit {
-  background-color: var(--primary-color); /* Warna slate gelap */
+  background-color: var(--primary-color); 
   color: white;
   border: none;
   padding: 0.8rem;
@@ -268,51 +405,12 @@ body {
   box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.2);
 }
 
+
 /* =========================================
-   4. RESPONSIF (Mobile View)
+   7. RESPONSIF (Mobile View)
    ========================================= */
 @media (max-width: 768px) {
   .contact-container {
     grid-template-columns: 1fr; 
   }
-}
-
-/* ========================================
-    Styling Card
-   ======================================== */
-
-.container {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  padding: 15px;
-  flex: 0 1 calc(30% - 20px);
-  display: flex;
-  flex-direction: column;
-}
-
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-}
-
-.card h3 {
-  margin: 10px 0 5px;
-}
-
-.card p {
-  margin: 3px 0;
-  color: gray;
-  font-size: 14px;
 }
